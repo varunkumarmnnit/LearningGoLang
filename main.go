@@ -112,6 +112,23 @@ func barber(b *Barber, wr chan *Customer, wakers chan *Customer) {
 	}
 }
 
+func DeferCheck() {
+
+	fmt.Println("counting")
+
+	for i := 0; i < 10; i++ {
+		defer fmt.Println(i)
+	}
+
+	fmt.Println("done")
+}
+
+func split(sum int) (x, y int) {
+	x = sum * 4 / 9
+	y = sum - x
+	return
+}
+
 func HairCut(c *Customer, b *Barber) {
 	b.state = cutting
 	b.customer = c
@@ -229,4 +246,12 @@ func main() {
 
 	wg.Wait()
 	fmt.Println("No more customers for the day")
+
+	//DeferCheck()
+	//println(split(15))
+
+	func(l int, b int) {
+		fmt.Println(l * b)
+	}(20, 30)
+
 }
