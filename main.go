@@ -18,6 +18,7 @@ func NewConsumer(msgs *chan int) *Consumer {
 // consume reads the msgs channel
 func (c *Consumer) consume() {
 	fmt.Println("consume: Started")
+	println("Varun")
 	for {
 		msg := <-*c.msgs
 		fmt.Println("consume: Received:", msg)
